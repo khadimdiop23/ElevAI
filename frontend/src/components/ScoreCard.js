@@ -31,13 +31,13 @@ function ScoreCard({ score, category, risk_prediction, explanations, recommendat
 
   const getTrendIcon = (value) => {
     if (value === "+") return "++";
-    if (value === "-") return "_-";
+    if (value === "-") return "--";
     if (value === "=") return "==";
     return "";
   };
 
   return (
-    <div className="score-card">
+    <div className="score-card" data-testid="score-card">
       <div className="score-header">
         <h2 className="score-title">Score de bien-être</h2>
         <div className="score-badge">{getScoreLabel(score)}</div>
@@ -94,7 +94,7 @@ function ScoreCard({ score, category, risk_prediction, explanations, recommendat
             <h3 className="section-title">Recommandations personnalisées</h3>
             <div className="recommendations-count">{recommendations.length}</div>
           </div>
-          <div className="recommendations-list">
+          <div className="recommendations-list" data-testid="recommendations-list">
             {recommendations.map((rec, index) => (
               <div key={index} className="recommendation-card">
                 <div className="recommendation-number">0{index + 1}</div>

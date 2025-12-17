@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database import init_db
-from backend.routers import users, data, analysis
+from backend.routers import users, data, analysis,recommend
 
 # Initialiser la base de données
 init_db()
@@ -25,6 +25,7 @@ app.add_middleware(
 app.include_router(users.router)
 app.include_router(data.router)
 app.include_router(analysis.router)
+app.include_router(recommend.router)
 
 @app.get("/")
 def read_root():

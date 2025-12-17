@@ -45,7 +45,6 @@ function Dashboard({ user }) {
     fc_repos: ""
   });
 
-  // Récupération des données et analyse
   useEffect(() => {
     if (user) fetchData();
   }, [user]);
@@ -56,7 +55,6 @@ function Dashboard({ user }) {
     try {
       const analysisResponse = await axios.get(`${API_URL}/analyze/${user.id}`);
       setAnalysis(analysisResponse.data);
-      
     } catch (err) {
       if (err.response?.status === 404) setAnalysis(null);
       else setError(err.response?.data?.detail || "Erreur lors du chargement de l'analyse");
@@ -73,7 +71,6 @@ function Dashboard({ user }) {
     }
   };
 
-  // Gestion du formulaire
   const handleDailyChange = (e) => {
     setDailyForm({ ...dailyForm, [e.target.name]: e.target.value });
   };
@@ -81,7 +78,6 @@ function Dashboard({ user }) {
   const handleDailySubmit = async (e) => {
     e.preventDefault();
 
-    // Vérification que tous les champs sont remplis
     for (const key in dailyForm) {
       if (dailyForm[key] === "") {
         alert(`Veuillez remplir le champ : ${key.replace("_", " ")}`);
@@ -119,13 +115,11 @@ function Dashboard({ user }) {
       });
       setShowDailyForm(false);
     } catch (err) {
-      console.error("Erreur lors de l'ajout :", err);
       const message = err.response?.data?.detail || "Erreur lors de l'ajout des données journalières";
       alert(message);
     }
   };
 
-  // Préparer les données du graphique
   const prepareChartData = () => {
     const sortedHistory = [...history].sort((a, b) => new Date(a.date) - new Date(b.date));
     const dates = sortedHistory.map(item => {
@@ -203,7 +197,11 @@ function Dashboard({ user }) {
       </div>
 
       {showDailyForm && (
-        <form onSubmit={handleDailySubmit} style={{ display: "grid", gap: "0.5rem", marginBottom: "1.5rem" }}>
+        <form 
+          data-testid="daily-form"
+          onSubmit={handleDailySubmit} 
+          style={{ display: "grid", gap: "0.5rem", marginBottom: "1.5rem" }}
+        >
           <input type="date" name="date" value={dailyForm.date} onChange={handleDailyChange} required />
           <input type="number" name="sommeil_h" placeholder="Sommeil (h)" value={dailyForm.sommeil_h} onChange={handleDailyChange} required />
           <input type="number" name="pas" placeholder="Pas" value={dailyForm.pas} onChange={handleDailyChange} required />
@@ -212,13 +210,14 @@ function Dashboard({ user }) {
           <input type="number" name="humeur_0_5" placeholder="Humeur (0-5)" value={dailyForm.humeur_0_5} onChange={handleDailyChange} required />
           <input type="number" name="stress_0_5" placeholder="Stress (0-5)" value={dailyForm.stress_0_5} onChange={handleDailyChange} required />
           <input type="number" name="fc_repos" placeholder="Fréquence cardiaque repos" value={dailyForm.fc_repos} onChange={handleDailyChange} required />
-          <button type="submit" className="btn">Ajouter</button>
+          <button type="submit" data-testid="submit-daily" className="btn">Ajouter</button>
         </form>
       )}
 
       <div className="cards-grid">
         {analysis && (
           <ScoreCard 
+            data-testid="score-card"
             score={analysis.score} 
             category={analysis.category} 
             explanations={analysis.explanations}
