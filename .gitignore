@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ML Models
+*.pkl
+*.joblib
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Tests
+playwright-report/
+test-results/
+playwright/.cache/
+
+# Environment
+.env
+.env.local
+
+
+
+
