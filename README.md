@@ -2,7 +2,7 @@
 
 Application full-stack pour le suivi du bien-être avec intégration d'IA, permettant aux utilisateurs de suivre leurs indicateurs quotidiens (sommeil, activité physique, alimentation, humeur, stress, fréquence cardiaque), de calculer un score de bien-être, de prédire son évolution et de recevoir des recommandations personnalisées.
 
-## 📋 Table des matières
+##  Table des matières
 
 - [Architecture](#architecture)
 - [Prérequis](#prérequis)
@@ -45,13 +45,13 @@ Application full-stack pour le suivi du bien-être avec intégration d'IA, perme
 - **Tests**: Playwright
 - **IA**: RandomForest Regressor pour la prédiction du score de bien-être
 
-## 📦 Prérequis
+## Prérequis
 
 - Python 3.8+
 - Node.js 16+
 - npm ou yarn
 
-## 🚀 Installation
+##  Installation
 
 ### 1. Cloner le dépôt
 
@@ -103,7 +103,7 @@ npm install
 npx playwright install
 ```
 
-## 🎯 Utilisation
+## Utilisation
 
 ### Démarrer le backend
 
@@ -136,7 +136,7 @@ Pour l'interface UI de Playwright:
 npm run test:ui
 ```
 
-## 📡 Endpoints API
+##  Endpoints API
 
 ### Utilisateurs
 
@@ -223,7 +223,7 @@ Calculer le score global et l'analyse courante
 #### `GET /recommend/{user_id}`
 Obtenir les recommandations personnalisées
 
-## 🤖 Modèle IA
+##  Modèle IA
 
 ### Choix du modèle
 
@@ -275,7 +275,7 @@ python -m ml.train
 
 Le modèle est sauvegardé dans `backend/ml/model.pkl` et chargé automatiquement lors des prédictions.
 
-## 🧪 Tests
+##  Tests
 
 ### Tests E2E Playwright
 
@@ -293,7 +293,7 @@ cd tests
 npm test
 ```
 
-## 📁 Structure du projet
+##  Structure du projet
 
 ```
 ElevAI/
@@ -333,7 +333,7 @@ ElevAI/
 └── README.md
 ```
 
-## 🔒 Sécurité (à considérer pour un déploiement public)
+##  Sécurité (à considérer pour un déploiement public)
 
 - [ ] Authentification JWT
 - [ ] Validation et sanitization des entrées
@@ -343,7 +343,7 @@ ElevAI/
 - [ ] Gestion sécurisée des secrets
 - [ ] Audit des dépendances
 
-## 🎨 Fonctionnalités Frontend
+##  Fonctionnalités Frontend
 
 - **Page de connexion** : Sélection ou création d'utilisateur
 - **Dashboard** :
@@ -354,7 +354,7 @@ ElevAI/
   - Explications par dimension
 - **Formulaire d'ajout** : Validation des champs, messages d'erreur/succès
 
-## 📊 Exemples d'usage
+## Exemples d'usage
 
 ### Créer un utilisateur via curl
 
@@ -394,7 +394,7 @@ curl -X POST "http://localhost:8000/data" \
 curl "http://localhost:8000/analyze/1"
 ```
 
-## 🐛 Dépannage
+##  Dépannage
 
 ### Le backend ne démarre pas
 
@@ -414,23 +414,13 @@ curl "http://localhost:8000/analyze/1"
 - Vérifier que les navigateurs Playwright sont installés: `npx playwright install`
 - Augmenter les timeouts si nécessaire dans `playwright.config.ts`
 
-## 📝 Notes de développement
+##  Notes de développement
 
 - Le modèle ML utilise des données synthétiques si moins de 50 enregistrements réels sont disponibles
 - La base de données SQLite est créée automatiquement au premier démarrage
 - Le modèle est sauvegardé dans `backend/ml/model.pkl` après entraînement
 
-## 👤 Auteur
 
-Alexandre JOUSSET
-
-## 📅 Date de rendu
-
-17 décembre 2025
-
-## 📄 Licence
-
-Ce projet est un projet académique.
 
 
 
