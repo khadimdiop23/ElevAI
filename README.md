@@ -1,6 +1,6 @@
 # ElevAI - Coach numérique intelligent de bien-être
 
-Application full-stack pour le suivi du bien-être avec intégration d'IA, permettant aux utilisateurs de suivre leurs indicateurs quotidiens (sommeil, activité physique, alimentation, humeur, stress, fréquence cardiaque), de calculer un score de bien-être, de prédire son évolution et de recevoir des recommandations personnalisées.
+
 
 ##  Table des matières
 
@@ -13,7 +13,7 @@ Application full-stack pour le suivi du bien-être avec intégration d'IA, perme
 - [Tests](#tests)
 - [Structure du projet](#structure-du-projet)
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────┐
